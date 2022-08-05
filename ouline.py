@@ -1,12 +1,7 @@
-#Complete the main function to get the job role and location from the user and print it on the console.
-
 #import beautifulsoup and request here
 from bs4 import BeautifulSoup
 import requests
 import json
-
-# with open ('3155_Beautiful_Soup_WillNguyen.postman_collection.json') as q:
-#     data1 = json.load(q)
 
 
 # Create an array here
