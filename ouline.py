@@ -42,7 +42,7 @@ def getJobList(role,location):
 def saveDataInJSON(jobDetails):
     #Complete the missing part of this function here
     out_file =  open('jobDetails.json','w')
-    json.dump(jobList,out_file,indent=3)
+    json.dump(jobList,out_file,indent=6)
     print("Saving data to JSON")
  
 #main function
