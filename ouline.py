@@ -4,8 +4,8 @@ import requests
 import json
 
 
-# Create an array here
-jobList =[]
+#Create an array here
+#jobList =[]
 
 #function to get job list from url 'https://www.monster.com/jobs/search?q={role}&where={location}'
 def getJobList(role,location):
@@ -15,7 +15,8 @@ def getJobList(role,location):
     # print the status code here!
     soup = BeautifulSoup(response,'html.parser')
     JobDetails = soup.find_all('div',class_ = 'card card__job')
-
+    #Create an array here
+    jobList =[]
     # Search the jobs in job detail
     for job in JobDetails:
         jobTitle = job.find('h2', class_='card__job-title').text.strip()
@@ -34,11 +35,13 @@ def getJobList(role,location):
     return jobList
 
 #save data in JSON file
-def saveDataInJSON(jobDetails):
+def saveDataInJSON(jobList):
     #Complete the missing part of this function here
-    out_file =  open('jobDetails.json','w')
+    out_file = open('jobDetails.json','w')
     json.dump(jobList,out_file,indent=6)
     print("Saving data to JSON")
+    out_file.close()
+
  
 #main function
 def main():
@@ -49,12 +52,11 @@ def main():
     # Complete the missing part of this function here
     print("Enter location you want to search")
     location = input()
-    
     # Function search job for user
-    getJobList(role,location)
+    jobList = getJobList(role,location)
     
     # Save job list to json
-    saveDataInJSON(jobDetails)  
+    saveDataInJSON(jobList)  
    
     
     
